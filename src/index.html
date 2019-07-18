@@ -1,50 +1,53 @@
 <!DOCTYPE html>
 <div>
+  <head>
+    <title>
+      Spender
+    </title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
 
-    <head>
-        <title>
-            Spender
-        </title>
-        <link rel="stylesheet" href="styles.css">
-    </head>
+  <body>
+    <table>
+      <tr>
+        <td>
+          <form
+            onsubmit="event.preventDefault();onFormSubmit();"
+            autocomplete="off"
+          >
+            <div>
+              <label>Proyecto</label
+              ><label
+                class="validation-error hide"
+                id="projectValidationError"
+              ></label>
+              <input type="text" name="project" id="project" />
+            </div>
+            <div>
+              <label>Presupuesto</label>
+              <input type="number" name="budget" id="budget" />
+            </div>
 
-    <body>
-        <table>
-            <tr>
-                <td>
-                    <form onsubmit="event.preventDefault();onFormSubmit();" autocomplete="off">
-                        <div>
-                            <label>Proyecto</label><label class="validation-error hide"
-                                id="projectValidationError"></label>
-                            <input type="text" name="project" id="project">
-                        </div>
-                        <div>
-                            <label>Presupuesto</label>
-                            <input type="text" name="budget" id="budget">
-                        </div>
+            <div class="form-action-buttons">
+              <input type="submit" value="Submit" />
+            </div>
+          </form>
+        </td>
+        <td>
+          <table class="list" id="budgetList">
+            <thead>
+              <tr>
+                <th>Proyecto</th>
+                <th>Presupuesto</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </td>
+      </tr>
+    </table>
 
-                        <div class="form-action-buttons">
-                            <input type="submit" value="Submit">
-                        </div>
-                    </form>
-                </td>
-                <td>
-                    <table class="list" id="budgetList">
-                        <thead>
-                            <tr>
-                                <th>Proyecto</th>
-                                <th>Presupuesto</th>
-                                <th></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-
-                        </tbody>
-                    </table>
-                </td>
-            </tr>
-        </table>
-        <script src="app.js"></script>
-    </body>
-
+    <script src="app.js"></script>
+  </body>
 </div>
