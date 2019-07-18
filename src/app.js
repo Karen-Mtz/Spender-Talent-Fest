@@ -1,23 +1,23 @@
 let selectedRow = null;
 
-function onFormSubmit() {
+const onFormSubmit = () => {
   if (validate()) {
     let formData = readFormData();
     if (selectedRow == null) insertNewRecord(formData);
     else updateRecord(formData);
     resetForm();
   }
-}
+};
 
-function readFormData() {
+const readFormData = () => {
   let formData = {};
   formData["project"] = document.getElementById("project").value;
   formData["budget"] = document.getElementById("budget").value;
-
+  console.log(formData);
   return formData;
-}
+};
 
-function insertNewRecord(data) {
+const insertNewRecord = data => {
   let table = document
     .getElementById("budgetList")
     .getElementsByTagName("tbody")[0];
@@ -29,33 +29,34 @@ function insertNewRecord(data) {
   cell3 = newRow.insertCell(2);
   cell3.innerHTML = `<a onClick="onEdit(this)">Edit</a>
                        <a onClick="onDelete(this)">Delete</a>`;
-}
+};
 
-function resetForm() {
+const resetForm = () => {
   document.getElementById("project").value = "";
   document.getElementById("budget").value = "";
 
   selectedRow = null;
-}
+};
 
-function onEdit(td) {
+const onEdit = td => {
   selectedRow = td.parentElement.parentElement;
   document.getElementById("project").value = selectedRow.cells[0].innerHTML;
   document.getElementById("budget").value = selectedRow.cells[1].innerHTML;
-}
-function updateRecord(formData) {
+};
+const updateRecord = formData => {
   selectedRow.cells[0].innerHTML = formData.project;
   selectedRow.cells[1].innerHTML = formData.budget;
-}
+};
 
-function onDelete(td) {
+const onDelete = td => {
   if (confirm("Are you sure to delete this record ?")) {
     row = td.parentElement.parentElement;
     document.getElementById("budgetList").deleteRow(row.rowIndex);
     resetForm();
   }
-}
-function validate() {
+};
+
+const validate = () => {
   isValid = true;
   if (document.getElementById("project").value == "") {
     isValid = false;
@@ -70,4 +71,4 @@ function validate() {
       document.getElementById("projectValidationError").classList.add("hide");
   }
   return isValid;
-}
+};
