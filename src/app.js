@@ -26,8 +26,8 @@ const insertNewRecord = data => {
   let newRow = table.insertRow(table.length);
   cell1 = newRow.insertCell(0);
   cell1.innerHTML = data.project;
-  cell2 = newRow.insertCell(1);
-  cell2.innerHTML = data.budget;
+  row2 = newRow.insertCell(1);
+  row2.innerHTML = data.budget;
   cell3 = newRow.insertCell(2);
   cell3.innerHTML = `<a onClick="onEdit(this)">Edit</a>
                        <a onClick="onDelete(this)">Delete</a>
@@ -63,7 +63,7 @@ const onDelete = td => {
 const addexpense = () => {
   const innerTable = document.getElementById("secondtable");
   innerTable.innerHTML = `<td>
-  <form id="form" onsubmit="event.preventDefault();onFormSubmit();" autocomplete="off">
+  <form id="form-expenses" onsubmit="event.preventDefault();onFormSubmit();" autocomplete="off">
       <div>
           <label>$0.00</label><label class="validation-error hide" id="projectValidationError"></label>
           <input type="number" name="quantity" id="quantity" />
@@ -85,11 +85,13 @@ const addexpense = () => {
 
 const createExpense = () => {
   let formExpense = expenseData();
-  let newbudget = formData.budget - formExpense.quantity;
+  let newbudget =
+    formData.budget - formExpense.quantity * formExpense.multiplier;
   formData.budget = newbudget;
-  cell2.innerHTML = formData.budget;
+  row2.innerHTML = formData.budget;
   console.log();
   console.log(formData);
+  insertNewExpense(formExpense);
   resetForm();
 };
 
@@ -98,7 +100,25 @@ const expenseData = () => {
   formExpense["concept"] = document.getElementById("concept").value;
   formExpense["multiplier"] = document.getElementById("multiplier").value;
   console.log(formExpense);
+
   return formExpense;
+};
+
+const insertNewExpense = data => {
+  document.getElementById("form").style.visibility = "hidden";
+  let tab = document
+    .getElementById("expensesList")
+    .getElementsByTagName("tbody")[0];
+  let newRow = tab.insertRow(tab.length);
+  cell1 = newRow.insertCell(0);
+  cell1.innerHTML = data.concept;
+  cell2 = newRow.insertCell(1);
+  cell2.innerHTML = data.quantity * data.multiplier;
+  console.log(data.quantity);
+  // cell4 = newRow.insertCell(2);
+  // cell4.innerHTML = `<a onClick="onEdit(this)">Edit</a>
+  //                      <a onClick="onDelete(this)">Delete</a>
+  //                      <a onClick="addexpense(this)">addexpense</a>`;
 };
 
 const validate = () => {
