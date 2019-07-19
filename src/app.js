@@ -18,6 +18,7 @@ const readFormData = () => {
 };
 
 const insertNewRecord = data => {
+  document.getElementById("form").style.visibility = "hidden";
   let button = document.createElement("button");
   button.innerHTML = "Add expense";
   let body = document.getElementsByTagName("body")[0];
@@ -43,6 +44,7 @@ const resetForm = () => {
 };
 
 const onEdit = td => {
+  document.getElementById("form").style.visibility = "visible";
   selectedRow = td.parentElement.parentElement;
   document.getElementById("project").value = selectedRow.cells[0].innerHTML;
   document.getElementById("budget").value = selectedRow.cells[1].innerHTML;
