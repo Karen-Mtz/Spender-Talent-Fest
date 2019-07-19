@@ -1,17 +1,27 @@
 @import url("https://fonts.googleapis.com/css?family=Raleway&display=swap");
 
+@media (min-width: 1025px) and (max-width: 1280px) {
+  #project-and-budget {
+    width: 100%;
+    padding: 3%;
+    font-size: 19px;
+  }
+
+  nav {
+    font-size: 22px;
+  }
+  .navbar {
+    padding: 2%;
+  }
+}
+
 * {
   font-family: "Raleway", sans-serif;
   margin: 0;
   padding: 0;
 }
 
-body {
-  overflow-x: hidden;
-  overflow-y: hidden;
-}
-
-header {
+nav {
   color: white;
   background-color: rgb(198, 66, 87);
   height: 25%;
@@ -26,6 +36,21 @@ header {
   font-size: 19px;
   background-color: rgb(198, 66, 87);
   color: white;
+}
+
+#create {
+  width: 36%;
+  padding: 1px 8px;
+  border: none;
+  border-radius: 7px;
+  /* background-color: #9B0E48; */
+  /* border: 31px coral; */
+  margin: 4px 2px;
+  /* color: white; */
+  border: 1px solid #828a90;
+  border-radius: 4px;
+  background: none;
+  /* box-shadow: 0 0 black; */
 }
 
 .list {
@@ -81,6 +106,7 @@ input {
 
 #expensesList {
   display: none;
+  margin-left: 15px;
 }
 
 .footer {
@@ -91,4 +117,19 @@ input {
   background-color: rgb(198, 66, 87);
   color: white;
   text-align: center;
+}
+
+#pdfDownloader {
+  margin-left: 84%;
+  /* margin-top: 5%; */
+  color: white;
+  font-size: 18px;
+  position: absolute;
+}
+
+#form-expenses {
+  margin-left: 6%;
+  /* margin-top: -24%; */
+  margin-top: -24%;
+  display: inline-block;
 }

@@ -15,9 +15,10 @@
 
 <body>
     <main>
-        <header>
+        <nav class="navbar">
             <h1>Spender</h1>
-        </header>
+            <i class="fas fa-file-download" id="pdfDownloader" style="visibility: hidden"></i>
+        </nav>
 
         <section id="project-and-budget">
             <table class="list" id="budgetList">
@@ -34,39 +35,33 @@
                     <label>Presupuesto</label>
                     <input type="number" name="budget" id="budget" />
                 </div>
-
+                    <br>
                 <div class="form-action-buttons">
-                    <input type="submit" value="Aceptar" />
+                    <input type="submit" value="Aceptar" id="create">
                 </div>
             </form>
         </section>
+    
 
+    <section id="expenses">
+    <table class="list" id="expensesList">
+        <thead>
+        </thead>
+        <tbody></tbody>
+    </table>
+</section>
+<div id="secondtable"></div>
+<div id="add-expence"></div>
+</div>
 
-        <section id="expenses">
-            <table class="list table table-hover " style="display: table;" id="expensesList">
-                <tbody>
-                    <tr>
-
-                    </tr>
-
-                </tbody>
-            </table>
-        </section>
-        <div id="secondtable" class="pl-5"></div>
-        <div id="add-expence"></div>
-
-
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
-        </script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
-        </script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
-        </script>
-
-        <script src="app.js"></script>
+<script
+src="https://code.jquery.com/jquery-3.4.1.min.js"
+integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+crossorigin="anonymous"
+></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.0.272/jspdf.debug.js"></script>
+    <script src="app.js"></script>
 </body>
 </main>
 

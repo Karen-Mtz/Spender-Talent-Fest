@@ -20,6 +20,7 @@ const readFormData = () => {
 
 const insertNewRecord = data => {
   document.getElementById("form").style.visibility = "hidden";
+  document.getElementById("pdfDownloader").style.visibility = "visible";
   let table = document
     .getElementById("budgetList")
     .getElementsByTagName("tbody")[0];
@@ -30,9 +31,9 @@ const insertNewRecord = data => {
   row2.innerHTML = `Presupuesto: $${data.budget}`;
   cell3 = newRow.insertCell(2);
   cell3.innerHTML = `<i class="fas fa-edit" onClick="onEdit(this)"></i>
-                    <i class="far fa-trash-alt delete"onClick="onDelete(this)"></i>`;
+ <i class="far fa-trash-alt delete"onClick="onDelete(this)"></i>`;
   document.getElementById("add-expence").innerHTML = `<footer class="footer">
-  
+ 
 <i class="fas fa-plus-circle" onClick="addexpense(this)"></i> </footer>`;
 };
 
@@ -67,10 +68,10 @@ const addexpense = () => {
   innerTable.style.display = "block";
 
   innerTable.innerHTML = `
- 
- 
- <td>
- <form id="form-expenses" onsubmit="event.preventDefault();onFormSubmit();" autocomplete="off">
+
+
+<td>
+<form id="form-expenses" onsubmit="event.preventDefault();onFormSubmit();" autocomplete="off">
      <div>
          <label></label><label class="validation-error hide" id="projectValidationError"></label>
          <input type="number" name="quantity" id="quantity" placeholder="$0.00" />
@@ -142,7 +143,7 @@ const insertNewExpense = data => {
   cell1.innerHTML = ` ${
     data.concept
   }&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${data.quantity *
-    data.multiplier}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+    data.multiplier}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
   <i class="far fa-trash-alt delete"onClick="onDeleteExpense(this)"></i>
   
                       `;
@@ -164,3 +165,18 @@ const validate = () => {
   }
   return isValid;
 };
+
+$(document).ready(() => {
+  $("#pdfDownloader").click(() => {
+    html2canvas(document.getElementById("expensesList"), {
+      onrendered: canvas => {
+        var imgData = canvas.toDataURL("image/png");
+        //console.log("Report Image URL: " + imgData);
+        var doc = new jsPDF("p", "mm", [297, 210]); //210mm wide and 297mm high
+
+        doc.addImage(imgData, "PNG", 10, 10);
+        doc.save("sample.pdf");
+      }
+    });
+  });
+});
