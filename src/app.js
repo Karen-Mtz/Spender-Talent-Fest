@@ -20,7 +20,7 @@ const readFormData = () => {
 
 const insertNewRecord = data => {
   document.getElementById("form").style.visibility = "hidden";
-  document.getElementById("pdfDownloader").style.visibility = "visible"
+  document.getElementById("pdfDownloader").style.visibility = "visible";
   let table = document
     .getElementById("budgetList")
     .getElementsByTagName("tbody")[0];
@@ -101,7 +101,7 @@ const createExpense = () => {
   const addExpen = document.getElementById("secondtable");
 
   visibility.style.display = "block";
-  addExpen.style.display = "none";
+  // addExpen.style.display = "none";
 
   console.log();
   console.log(formData);

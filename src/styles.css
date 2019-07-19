@@ -1,20 +1,18 @@
 @import url("https://fonts.googleapis.com/css?family=Raleway&display=swap");
 
 @media (min-width: 1025px) and (max-width: 1280px) {
-  
+  #project-and-budget {
+    width: 100%;
+    padding: 3%;
+    font-size: 19px;
+  }
 
-#project-and-budget {
-  width: 100%;
-  padding: 3%;
-  font-size: 19px;
-}
-
-nav {
-  font-size: 22px;
-}
-.navbar {
-  padding: 2%;
-}
+  nav {
+    font-size: 22px;
+  }
+  .navbar {
+    padding: 2%;
+  }
 }
 
 * {
@@ -42,18 +40,18 @@ nav {
 
 #create {
   width: 36%;
-    padding: 1px 8px;
-    border: none;
-    border-radius: 7px;
-    /* background-color: #9B0E48; */
-    /* border: 31px coral; */
-    margin: 4px 2px;
-    /* color: white; */
-    border: 1px solid #828a90;
-    border-radius: 4px;
-    background: none;
-    /* box-shadow: 0 0 black; */
-  }
+  padding: 1px 8px;
+  border: none;
+  border-radius: 7px;
+  /* background-color: #9B0E48; */
+  /* border: 31px coral; */
+  margin: 4px 2px;
+  /* color: white; */
+  border: 1px solid #828a90;
+  border-radius: 4px;
+  background: none;
+  /* box-shadow: 0 0 black; */
+}
 
 .list {
   line-height: 155%;
@@ -80,14 +78,15 @@ input {
 
 #expenses {
   display: inline-block;
-  /* position: absolute; */
-  bottom: 50px;
-  right: 0px;
+  position: absolute;
+  bottom: -96px;
+  right: 15px;
   /* background: #FFFCF0; */
   height: 56%;
   border-radius: 3vh;
   width: 89%;
   margin: 1vh;
+
   /* border-style: solid; */
   /* border-width: 13px; */
   /* border-color: white; */
@@ -107,6 +106,7 @@ input {
 
 #expensesList {
   display: none;
+  margin-left: 15px;
 }
 
 .footer {
@@ -120,8 +120,8 @@ input {
 }
 
 #pdfDownloader {
-  margin-left: 13%;
-  margin-top: -41%;
+  margin-left: 84%;
+  /* margin-top: 5%; */
   color: white;
   font-size: 18px;
   position: absolute;
