@@ -18,6 +18,10 @@ const readFormData = () => {
 };
 
 const insertNewRecord = data => {
+  let button = document.createElement("button");
+  button.innerHTML = "Add expense";
+  let body = document.getElementsByTagName("body")[0];
+  body.appendChild(button);
   let table = document
     .getElementById("budgetList")
     .getElementsByTagName("tbody")[0];
