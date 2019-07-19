@@ -30,10 +30,10 @@ const insertNewRecord = data => {
   row2.innerHTML = `Presupuesto: $${data.budget}`;
   cell3 = newRow.insertCell(2);
   cell3.innerHTML = `<i class="fas fa-edit" onClick="onEdit(this)"></i>
-                    <i class="far fa-trash-alt delete"onClick="onDelete(this)"></i>`;
-  document.getElementById(
-    "add-expence"
-  ).innerHTML = `<i class="fas fa-plus-circle" onClick="addexpense(this)"></i>`;
+ <i class="far fa-trash-alt delete"onClick="onDelete(this)"></i>`;
+  document.getElementById("add-expence").innerHTML = `<footer class="footer">
+ 
+<i class="fas fa-plus-circle" onClick="addexpense(this)"></i> </footer>`;
 };
 
 const resetForm = () => {
@@ -64,8 +64,13 @@ const onDelete = td => {
 
 const addexpense = () => {
   const innerTable = document.getElementById("secondtable");
-  innerTable.innerHTML = `<td>
- <form id="form-expenses" onsubmit="event.preventDefault();onFormSubmit();" autocomplete="off">
+  innerTable.style.display = "block";
+
+  innerTable.innerHTML = `
+
+
+<td>
+<form id="form-expenses" onsubmit="event.preventDefault();onFormSubmit();" autocomplete="off">
      <div>
          <label></label><label class="validation-error hide" id="projectValidationError"></label>
          <input type="number" name="quantity" id="quantity" placeholder="$0.00" />
@@ -78,7 +83,7 @@ const addexpense = () => {
      <label></label>
      <input type="number" name="multiplier" id="multiplier" placeholder="multiplicador"/>
  </div>
-    <a onClick="createExpense(this)">ok</a>
+ <i class="far fa-check-square" onClick="createExpense(this)"></i>
  </form>
 </td>
 <td>`;
@@ -91,6 +96,12 @@ const createExpense = () => {
   formData.budget = newbudget;
   formData.total = totalQuantity;
   row2.innerHTML = formData.budget;
+  const visibility = document.getElementById("expensesList");
+  const addExpen = document.getElementById("secondtable");
+
+  visibility.style.display = "block";
+  addExpen.style.display = "none";
+
   console.log();
   console.log(formData);
   insertNewExpense(formExpense);
@@ -122,14 +133,18 @@ const insertNewExpense = data => {
     .getElementById("expensesList")
     .getElementsByTagName("tbody")[0];
   let newRow = tab.insertRow(tab.length);
-  cell1 = newRow.insertCell(0);
-  cell1.innerHTML = data.concept;
-  cell2 = newRow.insertCell(1);
-  cell2.innerHTML = data.quantity * data.multiplier;
+  // cell1 = newRow.insertCell(0);
+  // // cell1.innerHTML = data.concept;
+  // cell2 = newRow.insertCell(1);
+  // cell2.innerHTML = data.quantity * data.multiplier;
   console.log(data.quantity);
-  cell4 = newRow.insertCell(2);
-  cell4.innerHTML = `<a onClick="onEdit(this)">Edit</a>
-                      <a onClick="onDeleteExpense(this)">Delete</a>
+  cell1 = newRow.insertCell(0);
+  cell1.innerHTML = ` ${
+    data.concept
+  }&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${data.quantity *
+    data.multiplier}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <i class="fas fa-edit" onClick="onEdit(this)"></i>
+  <i class="far fa-trash-alt delete"onClick="onDeleteExpense(this)"></i>
+  
                       `;
 };
 
@@ -149,6 +164,7 @@ const validate = () => {
   }
   return isValid;
 };
+
 $(document).ready(() => {
   $("#pdfDownloader").click(() => {
     html2canvas(document.getElementById("expensesList"), {

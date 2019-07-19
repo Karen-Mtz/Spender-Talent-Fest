@@ -6,23 +6,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Spender</title>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+        integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="styles.css" />
 </head>
 
 <body>
-  <div id="printDiv">
-<main>
-    <header>
-        <h1>Spender</h1>
-    </header>
+    <main>
+        <header>
+            <h1>Spender</h1>
+        </header>
 
-    <section id="project-and-budget">
-        <table class="list" id="budgetList">
-            <tbody></tbody>
-        </table>
-    </section>
-    <section id="form-new-edit-project">
+        <section id="project-and-budget">
+            <table class="list" id="budgetList">
+                <tbody></tbody>
+            </table>
+        </section>
+        <section id="form-new-edit-project">
             <form id="form" onsubmit="event.preventDefault();onFormSubmit();" autocomplete="off">
                 <div>
                     <label>Proyecto</label><label class="validation-error hide" id="projectValidationError"></label>
@@ -32,7 +34,7 @@
                     <label>Presupuesto</label>
                     <input type="number" name="budget" id="budget" />
                 </div>
-    
+
                 <div class="form-action-buttons">
                     <input type="submit" value="Aceptar" />
                 </div>
@@ -61,4 +63,5 @@ crossorigin="anonymous"
     <script src="app.js"></script>
 </body>
 </main>
+
 </html>

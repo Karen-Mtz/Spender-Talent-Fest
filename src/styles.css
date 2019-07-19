@@ -54,13 +54,14 @@ input {
 #expenses {
   display: inline-block;
   position: absolute;
-  bottom: -9px;
-  right: -1px;
+  bottom: -96px;
+  right: 15px;
   /* background: #FFFCF0; */
-  height: 57%;
+  height: 56%;
   border-radius: 3vh;
   width: 89%;
   margin: 1vh;
+
   /* border-style: solid; */
   /* border-width: 13px; */
   /* border-color: white; */
@@ -75,6 +76,19 @@ input {
 }
 
 #secondtable {
-  margin-left: 4%;
-  margin-top: -44%;
+  margin-top: -249px;
+}
+
+#expensesList {
+  display: none;
+}
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: rgb(198, 66, 87);
+  color: white;
+  text-align: center;
 }
