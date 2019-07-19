@@ -3,6 +3,7 @@ let formData = {};
 let formExpense = {};
 
 const onFormSubmit = () => {
+  document.getElementById("budgetList").style.visibility = "visible"
   if (validate()) {
     let formData = readFormData();
     if (selectedRow == null) insertNewRecord(formData);
@@ -24,14 +25,14 @@ const insertNewRecord = data => {
     .getElementById("budgetList")
     .getElementsByTagName("tbody")[0];
   let newRow = table.insertRow(table.length);
-  cell1 = newRow.insertCell(0);
-  cell1.innerHTML = data.project;
+  row1 = newRow.insertCell(0);
+  row1.innerHTML = data.project;
   row2 = newRow.insertCell(1);
-  row2.innerHTML = data.budget;
+  row2.innerHTML =  `Budget: ${data.budget}`;
   cell3 = newRow.insertCell(2);
-  cell3.innerHTML = `<a onClick="onEdit(this)">Edit</a>
-                       <a onClick="onDelete(this)">Delete</a>
-                       <a onClick="addexpense(this)">addexpense</a>`;
+  // cell3.innerHTML = `<a onClick="onEdit(this)">Edit</a>
+  //                      <a onClick="onDelete(this)">Delete</a>
+  //                      <a onClick="addexpense(this)">addexpense</a>`;
 };
 
 const resetForm = () => {
@@ -84,6 +85,8 @@ const addexpense = () => {
 };
 
 const createExpense = () => {
+  document.getElementById("expensesList").style.visibility = "visible"
+  document.getElementById("form-expenses").style.visibility = "hidden"
   let formExpense = expenseData();
   let newbudget =
     formData.budget - formExpense.quantity * formExpense.multiplier;
