@@ -19,6 +19,10 @@ const readFormData = () => {
 
 const insertNewRecord = data => {
   document.getElementById("form").style.visibility = "hidden";
+  let button = document.createElement("button");
+  button.innerHTML = "Add expense";
+  let body = document.getElementsByTagName("body")[0];
+  body.appendChild(button);
   let table = document
     .getElementById("budgetList")
     .getElementsByTagName("tbody")[0];
@@ -29,13 +33,13 @@ const insertNewRecord = data => {
   cell2.innerHTML = data.budget;
   cell3 = newRow.insertCell(2);
   cell3.innerHTML = `<a onClick="onEdit(this)">Edit</a>
-                       <a onClick="onDelete(this)">Delete</a>
-                       <a onClick="addexpense(this)">addexpense</a>`;
+                       <a onClick="onDelete(this)">Delete</a>`;
 };
 
 const resetForm = () => {
   document.getElementById("project").value = "";
   document.getElementById("budget").value = "";
+
   selectedRow = null;
 };
 
@@ -58,44 +62,6 @@ const onDelete = td => {
     resetForm();
   }
 };
-
-const addexpense = () => {
-  const innerTable = document.getElementById("secondtable");
-  innerTable.innerHTML = `<td>
-  <form id="form" onsubmit="event.preventDefault();onFormSubmit();" autocomplete="off">
-      <div>
-          <label>$0.00</label><label class="validation-error hide" id="projectValidationError"></label>
-          <input type="number" name="quantity" id="quantity" />
-      </div>
-      <div>
-          <label>Concept</label>
-          <input type="text" name="concept" id="concept" />
-      </div>
-      <div>
-      <label>Multiplier</label>
-      <input type="number" name="multiplier" id="multiplier" />
-  </div>
-
-     <a onClick="createExpense(this)">addexpense</a>
-  </form>
-</td>
-<td>`;
-};
-
-const createExpense = () => {
-    let formExpense = expenseData();
-    resetForm();
-  }
-
-const expenseData = () => {
-  let formExpense = {};
-  formExpense["quantity"] = document.getElementById("quantity").value;
-  formExpense["concept"] = document.getElementById("concept").value;
-  formExpense["multiplier"] = document.getElementById("multiplier").value;
-  console.log(formExpense);
-  return formExpense;
-};
-
 
 const validate = () => {
   isValid = true;
