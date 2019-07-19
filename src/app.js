@@ -27,11 +27,13 @@ const insertNewRecord = data => {
   cell1 = newRow.insertCell(0);
   cell1.innerHTML = data.project;
   row2 = newRow.insertCell(1);
-  row2.innerHTML = data.budget;
+  row2.innerHTML = `Presupuesto: $${data.budget}`;
   cell3 = newRow.insertCell(2);
-  cell3.innerHTML = `<a onClick="onEdit(this)">Edit</a>
-                       <a onClick="onDelete(this)">Delete</a>
-                       <a onClick="addexpense(this)">addexpense</a>`;
+  cell3.innerHTML = `<i class="fas fa-edit" onClick="onEdit(this)"></i>
+                    <i class="far fa-trash-alt delete"onClick="onDelete(this)"></i>`;
+  document.getElementById(
+    "add-expence"
+  ).innerHTML = `<i class="fas fa-plus-circle" onClick="addexpense(this)"></i>`;
 };
 
 const resetForm = () => {
@@ -63,30 +65,32 @@ const onDelete = td => {
 const addexpense = () => {
   const innerTable = document.getElementById("secondtable");
   innerTable.innerHTML = `<td>
-  <form id="form-expenses" onsubmit="event.preventDefault();onFormSubmit();" autocomplete="off">
-      <div>
-          <label>$0.00</label><label class="validation-error hide" id="projectValidationError"></label>
-          <input type="number" name="quantity" id="quantity" />
-      </div>
-      <div>
-          <label>Concept</label>
-          <input type="text" name="concept" id="concept" />
-      </div>
-      <div>
-      <label>Multiplier</label>
-      <input type="number" name="multiplier" id="multiplier" />
-  </div>
-     <a onClick="createExpense(this)">addexpense</a>
-  </form>
+ <form id="form-expenses" onsubmit="event.preventDefault();onFormSubmit();" autocomplete="off">
+     <div>
+         <label></label><label class="validation-error hide" id="projectValidationError"></label>
+         <input type="number" name="quantity" id="quantity" placeholder="$0.00" />
+     </div>
+     <div>
+         <label></label>
+         <input type="text" name="concept" id="concept" placeholder="Concepto" />
+     </div>
+     <div>
+     <label></label>
+     <input type="number" name="multiplier" id="multiplier" placeholder="multiplicador"/>
+ </div>
+
+    <a onClick="createExpense(this)">ok</a>
+ </form>
 </td>
 <td>`;
 };
 
 const createExpense = () => {
   let formExpense = expenseData();
-  let newbudget =
-    formData.budget - formExpense.quantity * formExpense.multiplier;
+  let totalQuantity = formExpense.quantity * formExpense.multiplier;
+  let newbudget = formData.budget - totalQuantity;
   formData.budget = newbudget;
+  formData.total = totalQuantity;
   row2.innerHTML = formData.budget;
   console.log();
   console.log(formData);
@@ -103,6 +107,16 @@ const expenseData = () => {
   return formExpense;
 };
 
+const onDeleteExpense = td => {
+  if (confirm("Are you sure to delete this record ?")) {
+    row = td.parentElement.parentElement;
+    formData.budget = formData.budget + formData.total;
+    row2.innerHTML = formData.budget;
+    document.getElementById("expensesList").deleteRow(row.rowIndex);
+    resetForm();
+  }
+};
+
 const insertNewExpense = data => {
   document.getElementById("form").style.visibility = "hidden";
   let tab = document
@@ -114,10 +128,10 @@ const insertNewExpense = data => {
   cell2 = newRow.insertCell(1);
   cell2.innerHTML = data.quantity * data.multiplier;
   console.log(data.quantity);
-  // cell4 = newRow.insertCell(2);
-  // cell4.innerHTML = `<a onClick="onEdit(this)">Edit</a>
-  //                      <a onClick="onDelete(this)">Delete</a>
-  //                      <a onClick="addexpense(this)">addexpense</a>`;
+  cell4 = newRow.insertCell(2);
+  cell4.innerHTML = `<a onClick="onEdit(this)">Edit</a>
+                      <a onClick="onDeleteExpense(this)">Delete</a>
+                      `;
 };
 
 const validate = () => {
