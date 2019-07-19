@@ -149,12 +149,12 @@ const validate = () => {
   }
   return isValid;
 };
-$(document).ready(function() {
-  $("#pdfDownloader").click(function() {
+$(document).ready(() => {
+  $("#pdfDownloader").click(() => {
     html2canvas(document.getElementById("expensesList"), {
-      onrendered: function(canvas) {
+      onrendered: canvas => {
         var imgData = canvas.toDataURL("image/png");
-        console.log("Report Image URL: " + imgData);
+        //console.log("Report Image URL: " + imgData);
         var doc = new jsPDF("p", "mm", [297, 210]); //210mm wide and 297mm high
 
         doc.addImage(imgData, "PNG", 10, 10);
