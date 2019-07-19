@@ -27,12 +27,12 @@ const insertNewRecord = data => {
   let newRow = table.insertRow(table.length);
   row1 = newRow.insertCell(0);
   row1.innerHTML = data.project;
-  row2 = newRow.insertCell(1);
-  row2.innerHTML =  `Budget: ${data.budget}`;
-  cell3 = newRow.insertCell(2);
-  // cell3.innerHTML = `<a onClick="onEdit(this)">Edit</a>
-  //                      <a onClick="onDelete(this)">Delete</a>
-  //                      <a onClick="addexpense(this)">addexpense</a>`;
+  let budgetBox = document.getElementById("budget-box")
+  budgetBox.style.visibility = "visible"
+  budgetBox.innerHTML =  `Presupuesto: ${data.budget}`;
+  document.getElementById("foot").innerHTML = `<a onClick="onEdit(this)">Edit</a>
+                       <a onClick="onDelete(this)">Delete</a>
+                       <a onClick="addexpense(this)">addexpense</a>`;
 };
 
 const resetForm = () => {

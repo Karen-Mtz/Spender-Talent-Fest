@@ -1,3 +1,25 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway&display=swap');
+
+* {
+    font-family: 'Raleway', sans-serif;
+}
+
 td {
     display: block;
+}
+
+.jumbotron {
+    color: white !important;;
+    background-color:rgb(198, 66, 87) !important;
+}
+
+#budget-box {
+    padding: 6%;
+    background-color: rgb(113, 27, 70);
+    /* border-radius: 27%; */
+    margin: 3%;
+    /* border-bottom-left-radius: 15%; */
+    color: white;
+    font-size: 24px;
+    border-radius: 23px 23px 23px 23px;
 }
