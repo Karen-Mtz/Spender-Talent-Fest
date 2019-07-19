@@ -19,10 +19,6 @@ const readFormData = () => {
 
 const insertNewRecord = data => {
   document.getElementById("form").style.visibility = "hidden";
-  let button = document.createElement("button");
-  button.innerHTML = "Add expense";
-  let body = document.getElementsByTagName("body")[0];
-  body.appendChild(button);
   let table = document
     .getElementById("budgetList")
     .getElementsByTagName("tbody")[0];
@@ -33,7 +29,8 @@ const insertNewRecord = data => {
   cell2.innerHTML = data.budget;
   cell3 = newRow.insertCell(2);
   cell3.innerHTML = `<a onClick="onEdit(this)">Edit</a>
-                       <a onClick="onDelete(this)">Delete</a>`;
+                       <a onClick="onDelete(this)">Delete</a>
+                       <a onClick="addexpense(this)">addexpense</a>`;
 };
 
 const resetForm = () => {
@@ -61,6 +58,27 @@ const onDelete = td => {
     document.getElementById("budgetList").deleteRow(row.rowIndex);
     resetForm();
   }
+};
+
+const addexpense = () => {
+  const prueba = document.getElementById("probando");
+  prueba.innerHTML = `<td>
+  <form id="form" onsubmit="event.preventDefault();onFormSubmit();" autocomplete="off">
+      <div>
+          <label>Proyecto</label><label class="validation-error hide" id="projectValidationError"></label>
+          <input type="text" name="project" id="project" />
+      </div>
+      <div>
+          <label>Presupuesto</label>
+          <input type="number" name="budget" id="budget" />
+      </div>
+
+      <div class="form-action-buttons">
+          <input type="submit" value="Submit" />
+      </div>
+  </form>
+</td>
+<td>`;
 };
 
 const validate = () => {
