@@ -78,7 +78,6 @@ const addexpense = () => {
      <label></label>
      <input type="number" name="multiplier" id="multiplier" placeholder="multiplicador"/>
  </div>
-
     <a onClick="createExpense(this)">ok</a>
  </form>
 </td>
@@ -150,3 +149,17 @@ const validate = () => {
   }
   return isValid;
 };
+$(document).ready(function() {
+  $("#pdfDownloader").click(function() {
+    html2canvas(document.getElementById("expensesList"), {
+      onrendered: function(canvas) {
+        var imgData = canvas.toDataURL("image/png");
+        console.log("Report Image URL: " + imgData);
+        var doc = new jsPDF("p", "mm", [297, 210]); //210mm wide and 297mm high
+
+        doc.addImage(imgData, "PNG", 10, 10);
+        doc.save("sample.pdf");
+      }
+    });
+  });
+});
