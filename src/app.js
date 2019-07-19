@@ -1,4 +1,6 @@
 let selectedRow = null;
+let formData = {};
+let formExpense = {};
 
 const onFormSubmit = () => {
   if (validate()) {
@@ -10,7 +12,6 @@ const onFormSubmit = () => {
 };
 
 const readFormData = () => {
-  let formData = {};
   formData["project"] = document.getElementById("project").value;
   formData["budget"] = document.getElementById("budget").value;
   console.log(formData);
@@ -83,19 +84,22 @@ const addexpense = () => {
 };
 
 const createExpense = () => {
-    let formExpense = expenseData();
-    resetForm();
-  }
+  let formExpense = expenseData();
+  let newbudget = formData.budget - formExpense.quantity;
+  formData.budget = newbudget;
+  cell2.innerHTML = formData.budget;
+  console.log();
+  console.log(formData);
+  resetForm();
+};
 
 const expenseData = () => {
-  let formExpense = {};
   formExpense["quantity"] = document.getElementById("quantity").value;
   formExpense["concept"] = document.getElementById("concept").value;
   formExpense["multiplier"] = document.getElementById("multiplier").value;
   console.log(formExpense);
   return formExpense;
 };
-
 
 const validate = () => {
   isValid = true;
