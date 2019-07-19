@@ -88,9 +88,10 @@ const createExpense = () => {
   document.getElementById("expensesList").style.visibility = "visible"
   document.getElementById("form-expenses").style.visibility = "hidden"
   let formExpense = expenseData();
-  let newbudget =
-    formData.budget - formExpense.quantity * formExpense.multiplier;
+  let totalQuantity = formExpense.quantity * formExpense.multiplier;
+  let newbudget = formData.budget - totalQuantity;
   formData.budget = newbudget;
+  formData.total = totalQuantity;
   row2.innerHTML = formData.budget;
   console.log();
   console.log(formData);
@@ -107,6 +108,16 @@ const expenseData = () => {
   return formExpense;
 };
 
+const onDeleteExpense = td => {
+  if (confirm("Are you sure to delete this record ?")) {
+    row = td.parentElement.parentElement;
+    formData.budget = formData.budget + formData.total;
+    row2.innerHTML = formData.budget;
+    document.getElementById("expensesList").deleteRow(row.rowIndex);
+    resetForm();
+  }
+};
+
 const insertNewExpense = data => {
   document.getElementById("form").style.visibility = "hidden";
   let tab = document
@@ -118,10 +129,10 @@ const insertNewExpense = data => {
   cell2 = newRow.insertCell(1);
   cell2.innerHTML = data.quantity * data.multiplier;
   console.log(data.quantity);
-  // cell4 = newRow.insertCell(2);
-  // cell4.innerHTML = `<a onClick="onEdit(this)">Edit</a>
-  //                      <a onClick="onDelete(this)">Delete</a>
-  //                      <a onClick="addexpense(this)">addexpense</a>`;
+  cell4 = newRow.insertCell(2);
+  cell4.innerHTML = `<a onClick="onEdit(this)">Edit</a>
+                       <a onClick="onDeleteExpense(this)">Delete</a>
+                       `;
 };
 
 const validate = () => {
