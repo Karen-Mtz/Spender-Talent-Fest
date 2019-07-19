@@ -18,10 +18,6 @@ const readFormData = () => {
 };
 
 const insertNewRecord = data => {
-  let button = document.createElement("button");
-  button.innerHTML = "Add expense";
-  let body = document.getElementsByTagName("body")[0];
-  body.appendChild(button);
   let table = document
     .getElementById("budgetList")
     .getElementsByTagName("tbody")[0];
@@ -33,7 +29,7 @@ const insertNewRecord = data => {
   cell3 = newRow.insertCell(2);
   cell3.innerHTML = `<a onClick="onEdit(this)">Edit</a>
                        <a onClick="onDelete(this)">Delete</a>
-                       <a onClick="addexpense(this)">addExpense</a>`;
+                       <a onClick="addexpense(this)">addexpense</a>`;
 };
 
 const resetForm = () => {
@@ -61,7 +57,9 @@ const onDelete = td => {
   }
 };
 
-const addexpense = () => {};
+const addexpense = () => {
+  console.log("hola");
+};
 
 const validate = () => {
   isValid = true;
