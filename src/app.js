@@ -20,10 +20,6 @@ const readFormData = () => {
 
 const insertNewRecord = data => {
   document.getElementById("form").style.visibility = "hidden";
-  let button = document.createElement("button");
-  button.innerHTML = "Add expense";
-  let body = document.getElementsByTagName("body")[0];
-  body.appendChild(button);
   let table = document
     .getElementById("budgetList")
     .getElementsByTagName("tbody")[0];
@@ -34,13 +30,13 @@ const insertNewRecord = data => {
   row2.innerHTML = data.budget;
   cell3 = newRow.insertCell(2);
   cell3.innerHTML = `<a onClick="onEdit(this)">Edit</a>
-                       <a onClick="onDelete(this)">Delete</a>`;
+                       <a onClick="onDelete(this)">Delete</a>
+                       <a onClick="addexpense(this)">addexpense</a>`;
 };
 
 const resetForm = () => {
   document.getElementById("project").value = "";
   document.getElementById("budget").value = "";
-
   selectedRow = null;
 };
 
@@ -80,7 +76,6 @@ const addexpense = () => {
       <label>Multiplier</label>
       <input type="number" name="multiplier" id="multiplier" />
   </div>
-
      <a onClick="createExpense(this)">addexpense</a>
   </form>
 </td>
