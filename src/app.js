@@ -20,6 +20,7 @@ const readFormData = () => {
 
 const insertNewRecord = data => {
   document.getElementById("form").style.visibility = "hidden";
+  document.getElementById("pdfDownloader").style.visibility = "visible"
   let table = document
     .getElementById("budgetList")
     .getElementsByTagName("tbody")[0];
@@ -142,7 +143,7 @@ const insertNewExpense = data => {
   cell1.innerHTML = ` ${
     data.concept
   }&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${data.quantity *
-    data.multiplier}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <i class="fas fa-edit" onClick="onEdit(this)"></i>
+    data.multiplier}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
   <i class="far fa-trash-alt delete"onClick="onDeleteExpense(this)"></i>
   
                       `;
