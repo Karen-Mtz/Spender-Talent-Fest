@@ -36,7 +36,6 @@ const insertNewRecord = data => {
 const resetForm = () => {
   document.getElementById("project").value = "";
   document.getElementById("budget").value = "";
-
   selectedRow = null;
 };
 
@@ -65,21 +64,38 @@ const addexpense = () => {
   innerTable.innerHTML = `<td>
   <form id="form" onsubmit="event.preventDefault();onFormSubmit();" autocomplete="off">
       <div>
-          <label>Proyecto</label><label class="validation-error hide" id="projectValidationError"></label>
-          <input type="text" name="project" id="project" />
+          <label>$0.00</label><label class="validation-error hide" id="projectValidationError"></label>
+          <input type="number" name="quantity" id="quantity" />
       </div>
       <div>
-          <label>Presupuesto</label>
-          <input type="number" name="budget" id="budget" />
+          <label>Concept</label>
+          <input type="text" name="concept" id="concept" />
       </div>
+      <div>
+      <label>Multiplier</label>
+      <input type="number" name="multiplier" id="multiplier" />
+  </div>
 
-      <div class="form-action-buttons">
-          <input type="submit" value="Submit" />
-      </div>
+     <a onClick="createExpense(this)">addexpense</a>
   </form>
 </td>
 <td>`;
 };
+
+const createExpense = () => {
+    let formExpense = expenseData();
+    resetForm();
+  }
+
+const expenseData = () => {
+  let formExpense = {};
+  formExpense["quantity"] = document.getElementById("quantity").value;
+  formExpense["concept"] = document.getElementById("concept").value;
+  formExpense["multiplier"] = document.getElementById("multiplier").value;
+  console.log(formExpense);
+  return formExpense;
+};
+
 
 const validate = () => {
   isValid = true;
