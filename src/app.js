@@ -50,6 +50,7 @@ const onEdit = td => {
   document.getElementById("budget").value = selectedRow.cells[1].innerHTML;
 };
 const updateRecord = formData => {
+  document.getElementById("form").style.visibility = "hidden";
   selectedRow.cells[0].innerHTML = formData.project;
   selectedRow.cells[1].innerHTML = formData.budget;
 };
