@@ -1,32 +1,82 @@
 @import url('https://fonts.googleapis.com/css?family=Raleway&display=swap');
 
 * {
-    font-family: 'Raleway', sans-serif;
+   font-family: 'Raleway', sans-serif;
+   margin: 0;
+   padding: 0
 }
 
+body {
+   overflow-x:hidden;
+   overflow-y:hidden;
+}
+
+header {
+   color: white;
+   background-color: rgb(198, 66, 87);
+   height: 25%;
+   width: 100%;
+   padding: 5%;
+   font-size: 17px;
+}
+
+#project-and-budget {
+   width: 100%;
+   padding: 4%;
+   font-size: 19px;
+   background-color: rgb(198, 66, 87);
+   color: white;
+}
+
+.list {
+   line-height: 155%;
+}
+
+#form-new-edit-project {
+   padding: 6%;
+   font-size: 22px;
+   line-height: 2;
+}
+
+#form-action-buttons {
+   float: right;
+}
 td {
-    display: block;
+   display: block;
 }
 
-.jumbotron {
-    color: white !important;;
-    background-color:rgb(198, 66, 87) !important;
+input {
+   border-top: 0;
+   border-right: 0;
+   border-left: 0;
 }
 
-#budget-box {
-    padding: 6%;
-    background-color: rgb(113, 27, 70);
-    /* border-radius: 27%; */
-    margin: 3%;
-    /* border-bottom-left-radius: 15%; */
-    color: white;
-    font-size: 24px;
-    border-radius: 23px 23px 23px 23px;
+#expenses {
+   display: inline-block;
+   position: absolute;
+   bottom: -9px;
+   right: -1px;
+   /* background: #FFFCF0; */
+   height: 57%;
+   border-radius: 3vh;
+   width: 89%;
+   margin: 1vh;
+   /* border-style: solid; */
+   /* border-width: 13px; */
+   /* border-color: white; */
+   overflow: auto;
 }
 
-.fas {
-    float: right;
-    color: #FFE149;
-    font-size: 26px;
-    margin-top: -21%;
+#add-expence {
+   margin-top: 55%;
+   margin-left: 41%;
+   position: fixed;
+   font-size: 33px;
 }
+
+#secondtable {
+   margin-left: 4%;
+   margin-top: -44%;
+
+}
+
