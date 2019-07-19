@@ -61,8 +61,8 @@ const onDelete = td => {
 };
 
 const addexpense = () => {
-  const prueba = document.getElementById("probando");
-  prueba.innerHTML = `<td>
+  const innerTable = document.getElementById("secondtable");
+  innerTable.innerHTML = `<td>
   <form id="form" onsubmit="event.preventDefault();onFormSubmit();" autocomplete="off">
       <div>
           <label>Proyecto</label><label class="validation-error hide" id="projectValidationError"></label>
