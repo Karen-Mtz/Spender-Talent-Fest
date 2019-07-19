@@ -11,6 +11,7 @@
 
 <body>
     <table>
+<<<<<<< HEAD
         <tr>
             <td>
                 <form onsubmit="event.preventDefault();onFormSubmit();" autocomplete="off">
@@ -22,6 +23,27 @@
                         <label>Presupuesto</label>
                         <input type="number" name="budget" id="budget" />
                     </div>
+=======
+      <tr>
+        <td>
+          <form
+            id="form"
+            onsubmit="event.preventDefault();onFormSubmit();"
+            autocomplete="off"
+          >
+            <div>
+              <label>Proyecto</label
+              ><label
+                class="validation-error hide"
+                id="projectValidationError"
+              ></label>
+              <input type="text" name="project" id="project" />
+            </div>
+            <div>
+              <label>Presupuesto</label>
+              <input type="number" name="budget" id="budget" />
+            </div>
+>>>>>>> upstream/master
 
                     <div class="form-action-buttons">
                         <input type="submit" value="Submit" />
