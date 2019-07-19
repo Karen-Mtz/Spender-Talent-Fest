@@ -28,7 +28,8 @@ const insertNewRecord = data => {
   cell2.innerHTML = data.budget;
   cell3 = newRow.insertCell(2);
   cell3.innerHTML = `<a onClick="onEdit(this)">Edit</a>
-                       <a onClick="onDelete(this)">Delete</a>`;
+                       <a onClick="onDelete(this)">Delete</a>
+                       <a onClick="addexpense(this)">addExpense</a>`;
 };
 
 const resetForm = () => {
@@ -55,6 +56,8 @@ const onDelete = td => {
     resetForm();
   }
 };
+
+const addexpense = () => {};
 
 const validate = () => {
   isValid = true;
