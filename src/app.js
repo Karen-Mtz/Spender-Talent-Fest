@@ -65,17 +65,13 @@ const addexpense = () => {
   innerTable.innerHTML = `<td>
   <form id="form" onsubmit="event.preventDefault();onFormSubmit();" autocomplete="off">
       <div>
-          <label>Concepto</label><label class="validation-error hide" id="projectValidationError"></label>
-          <input type="text" name="concept" id="concept" />
+          <label>Proyecto</label><label class="validation-error hide" id="projectValidationError"></label>
+          <input type="text" name="project" id="project" />
       </div>
       <div>
-          <label>Cantidad</label>
-          <input type="number" name="cantidad" id="cantidad" />
+          <label>Presupuesto</label>
+          <input type="number" name="budget" id="budget" />
       </div>
-      <div>
-      <label>Cantidad</label>
-      <input type="number" name="cantidad" id="cantidad" />
-  </div>
 
       <div class="form-action-buttons">
           <input type="submit" value="Submit" />
