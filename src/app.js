@@ -100,7 +100,7 @@ const createExpense = () => {
   const addExpen = document.getElementById("secondtable");
 
   visibility.style.display = "block";
-  addExpen.style.display = "none";
+  // addExpen.style.display = "none";
 
   console.log();
   console.log(formData);
@@ -142,7 +142,7 @@ const insertNewExpense = data => {
   cell1.innerHTML = ` ${
     data.concept
   }&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${data.quantity *
-    data.multiplier}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <i class="fas fa-edit" onClick="onEdit(this)"></i>
+    data.multiplier}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
   <i class="far fa-trash-alt delete"onClick="onDeleteExpense(this)"></i>
   
                       `;
